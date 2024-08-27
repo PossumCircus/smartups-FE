@@ -1,0 +1,84 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .custom_pagination_li {
+    /* float-left h-6 flex items-center justify-center */
+    float: left;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom_pagination_move {
+    position: relative;
+    cursor: pointer;
+    margin: 0 10px;
+
+    a {
+      width: 50px;
+      display: block;
+      z-index: 10;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:last-child::after,
+    &:first-child::before {
+      position: absolute;
+      font-size: 20px;
+      padding: 0 7px 0px;
+    }
+
+    &:first-child {
+      text-align: right;
+
+      &::before {
+        content: "<";
+        left: 0;
+      }
+    }
+
+    &:last-child::after {
+      content: ">";
+      right: 0;
+    }
+  }
+
+  
+}
+
+body {
+  @apply min-h-screen bg-gray-100  font-sans;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold;
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-200;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-lg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
